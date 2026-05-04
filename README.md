@@ -24,13 +24,11 @@
 
 </div>
 
----
-
 ## 🌍 العربية
 
 ### نظرة عامة
 
-**SoofT** هو نظام سحابي احترافي ومتعدد المستأجرين (Multi-tenant SaaS) مصمم خصيصًا لتحويل إدارة الأكاديميات والنوادي الرياضية في المنطقة العربية إلى تجربة رقمية متكاملة وذكية. يدعم النظام اللغة العربية بشكل كامل (RTL افتراضيًا) مع دعم كامل للغة الإنجليزية، ويوفر عزلًا تامًا للبيانات على مستوى المؤسسة مع صلاحيات دقيقة مفروضة من قاعدة البيانات مباشرة.
+**سوفت** هو نظام سحابي احترافي ومتعدد المستأجرين (Multi-tenant SaaS) مصمم خصيصًا لتحويل إدارة الأكاديميات والنوادي الرياضية في المنطقة العربية إلى تجربة رقمية متكاملة وذكية. يدعم النظام اللغة العربية بشكل كامل (RTL افتراضيًا) مع دعم كامل للغة الإنجليزية، ويوفر عزلًا تامًا للبيانات على مستوى المؤسسة مع صلاحيات دقيقة مفروضة من قاعدة البيانات مباشرة.
 
 ---
 
@@ -64,6 +62,7 @@
 - تسجيل يدوي مع اختيار التاريخ والوقت
 - سجل حضور كامل مع إمكانية التصفية والتصدير
 - تقارير الغياب والانتظام
+- قوالب ملاحظات حضور قابلة للتخصيص بالعربي/الإنجليزي
 
 #### 🏟️ إدارة الحجوزات
 - حجز الملاعب والمنشآت مع التحقق من التعارض في المواعيد
@@ -77,18 +76,44 @@
 - تقارير المصروفات مع فلترة حسب الفترة والفئة
 - تصدير تقارير المصروفات إلى Excel
 
-#### 👨‍🏫 إدارة المدربين
-- ملفات تعريفية كاملة للمدربين مع الصور
+#### 👨‍🏫 إدارة المدربين والموظفين
+- ملفات تعريفية كاملة للمدربين والموظفين مع الصور
 - رفع الشهادات والمؤهلات
 - ربط المدربين بالأنشطة والمستويات
 - إدارة جداول المدربين
+- حضور وانصراف الموظفين بسجل كامل
 
 #### 📊 التقارير والتحليلات المتقدمة
 - **لوحة التحكم الرئيسية (Dashboard):** مؤشرات KPI لحظية — رسوم بيانية تفاعلية — ملخص إيرادات
 - **Player Insights:** تحليل عمقي لأداء وسلوك كل لاعب
+- **PlayerProgressChart 🆕:** مكوّن متقدم يجمع في رسم واحد: الحضور الأسبوعي (Bar) + متوسط التقييمات الفنية/البدنية/التكتيكية/السلوكية (Line) + نشاط الاشتراك كمنطقة خلفية (Area) + Radar للمهارات + 3 مؤشرات KPI مصغّرة
 - **إدارة المنقطعين (Inactive Subscribers):** رصد اللاعبين الغائبين وإرسال رسائل إعادة تفعيل
 - **تقرير الإيرادات الأسبوعية:** رسم بياني ديناميكي قابل للتضمين في صفحات التسويق
+- **قائمة الدخل (Income Statement):** تقرير محاسبي بالبنود اليدوية والمصروفات والرسومات والتصدير
 - **مراقبة الأداء (Performance Monitor):** تتبع Web Vitals — LCP / FCP / TTFB — أحجام الحزم — أوقات تحميل كل صفحة
+
+#### 🧩 منشئ الويدجتس المخصص (Widget Builder) 🆕
+- إنشاء ويدجتس مخصصة فوق بيانات المؤسسة بأمان كامل
+- 5 أنواع: KPI · جدول · Bar · Line · Pie
+- فلاتر متقدمة وتجميعات (count / sum / avg / min / max)
+- **تصدير CSV وطباعة** لكل ويدجت
+- **VirtualTable** للجداول الكبيرة: فلترة سريعة + ترتيب أعمدة + Pagination + Virtualization تلقائي
+- **بحث ذكي** فيه: debounce 250ms · زر تصفير · مؤشر تحميل · عدّاد نتائج · اختصار F5 · قائمة نتائج فورية مع تظليل المطابقة
+- اختصارات لوحة مفاتيح: F1 جديد · F2 حفظ · F5 بحث · F7 معاينة
+- مشاركة Layouts ولوحات تحكم مخصصة على مستوى المستخدم/المؤسسة
+
+#### 🔔 تنبيهات KPI الذكية
+- إنشاء تنبيهات على مؤشرات الأداء (>, <, =, ≥, ≤)
+- قنوات التنبيه: داخل التطبيق · إيميل · واتساب
+- فترة تهدئة (cooldown) لتجنب الإزعاج
+- سجل كامل لتقييم كل تنبيه
+
+#### 👨‍👩‍👦 بوابة الأهالي واللاعبين 🆕
+- **بوابة /parent:** ولي الأمر يرى أبناءه فقط (حضور، اشتراكات، حجوزات، تقييمات) عبر `parent_owns_player`
+- **بوابة /player:** اللاعب يرى بياناته فقط عبر `player_owns_self`
+- عزل صارم على مستوى RLS — مستحيل فيزيائيًا قراءة بيانات لاعب آخر
+- سجل دخول كامل (Portal Login Logs)
+- تغيير كلمة المرور عند أول تسجيل دخول
 
 #### 📱 تكامل واتساب
 - تكامل مع WhatsApp Business API
@@ -102,6 +127,7 @@
 - الصلاحيات مفروضة من قاعدة البيانات (RLS) وليس فقط من الواجهة
 - أدوار مدمجة: `super_admin` — `admin` — أدوار مخصصة قابلة للإنشاء
 - مراجعة كاملة لكل تغيير في الصلاحيات (Audit Log)
+- **Widget Audit 🆕:** كل عمليات إنشاء/تعديل/حذف/معاينة الويدجت مسجّلة مع المستخدم والوقت وIP
 
 #### 🏢 دعم تعدد الفروع
 - عزل تام للبيانات على مستوى المؤسسة (Multi-tenant)
@@ -112,17 +138,20 @@
 - **Chatbot تسويقي** لصفحات الهبوط والتواصل مع الزوار
 - **Chatbot إداري** للإجابة على أسئلة الإدارة مع احترام الصلاحيات
 - تحليل البيانات واقتراح الرؤى
+- حفظ المحادثات والوصول إليها لاحقًا
 
 #### ⚙️ الإعدادات والتخصيص
 - إعدادات المؤسسة (الاسم — الشعار — العنوان — بيانات التواصل)
 - تخصيص شامل (اللون الرئيسي — اسم الأكاديمية — العملة)
 - إعداد البيانات الأولية (الأنشطة — الفئات — الأدوار)
+- نظام نسخ احتياطية مشفّرة مع جدولة تلقائية وإرسال للإيميل
 - **Danger Zone:** حذف البيانات وإعادة الضبط (للمدير فقط)
 
 #### 🖨️ الطباعة والتصدير
 - طباعة تقارير احترافية مباشرة من المتصفح
 - تصدير كل الجداول إلى Excel بنقرة واحدة
 - قوالب بطاقات التعريف قابلة للتخصيص الكامل وطباعتها دفعة واحدة
+- إعدادات طباعة موحّدة (شعار/رأس/تذييل/ضرائب)
 
 #### 🌐 دعم ثنائي اللغة والوضع المظلم
 - عربي (RTL) وإنجليزي (LTR) مع تبديل فوري بدون إعادة تحميل
@@ -144,8 +173,10 @@
 |--------|----------|
 | **RLS** | كل جدول مقيّد بـ Row-Level Security — قراءة بيانات مؤسسة أخرى مستحيلة فيزيائيًا |
 | **الصلاحيات** | دالة `has_permission()` تُفحص من داخل سياسات RLS |
+| **Portal RLS** | `parent_owns_player()` و `player_owns_self()` و `current_portal_type()` لعزل بوابة الأهل/اللاعب |
 | **تشفير PII** | الرقم القومي والهاتف مشفران باستخدام `pgcrypto` |
 | **Audit Logs** | سجل كامل لكل تعديل مع Before/After JSONB و IP و وقت |
+| **Widget Audit** | سجل مخصص لكل عمليات الويدجت (إنشاء/تعديل/حذف/معاينة/تشغيل) |
 | **التخزين** | دلو خاص للصور والمرفقات مع Signed URLs |
 | **Edge Functions** | تحقق JWT + `has_permission()` قبل أي عملية حساسة |
 
@@ -155,7 +186,7 @@
 
 ### Overview
 
-**SoofT** is a professional, multi-tenant cloud SaaS purpose-built for managing sports academies in the MENA region. It delivers first-class bilingual Arabic (RTL default) and English support, with branch-level data isolation, a fine-grained permission matrix enforced at the database layer (Supabase RLS), and a rich feature set covering every aspect of academy operations — from player onboarding and subscription billing to AI-assisted analytics and WhatsApp automation.
+**SoofT Academy Management System** is a professional, multi-tenant cloud SaaS purpose-built for managing sports academies in the MENA region. It delivers first-class bilingual Arabic (RTL default) and English support, with branch-level data isolation, a fine-grained permission matrix enforced at the database layer (Supabase RLS), and a rich feature set covering every aspect of academy operations — from player onboarding and subscription billing to AI-assisted analytics, custom widget building, and dedicated parent/player portals.
 
 ---
 
@@ -166,17 +197,21 @@
 | 👥 **Players** | 4-part names · Egyptian National ID validation · auto age calculation · photos & attachments · ID card printing · Excel import/export |
 | 🎯 **Activities** | 4-level hierarchy (Main → Sub → Age Category → Level) · trainer assignment · schedule management |
 | 💳 **Subscriptions** | Auto-invoicing · tax & discounts · bulk freeze with auto date extension · revenue reports · overdue tracking |
-| ✅ **Attendance** | Barcode (QR/barcode) or manual check-in · full history · absence reports |
+| ✅ **Attendance** | Barcode (QR/barcode) or manual check-in · full history · absence reports · bilingual note templates |
 | 🏟️ **Bookings** | Conflict-aware court scheduling · payment tracking · WhatsApp confirmations |
 | 💰 **Expenses** | Hierarchical categories · receipt image uploads · filtered reports · Excel export |
-| 👨‍🏫 **Trainers** | Full profiles · certifications · activity linking · schedule management |
-| 📊 **Analytics** | KPI dashboard · Player Insights · Inactive Subscribers management · Weekly Revenue widget · Performance Monitor (Web Vitals) |
+| 👨‍🏫 **Trainers & Employees** | Full profiles · certifications · activity linking · employee attendance log |
+| 📊 **Analytics** | KPI dashboard · Player Insights · Inactive Subscribers · Weekly Revenue widget · Income Statement · Performance Monitor (Web Vitals) |
+| 📈 **PlayerProgressChart** 🆕 | Combined chart: weekly attendance (Bar) + evaluation averages (Line) + subscription activity (Area) + skills Radar + 3 mini KPIs |
+| 🧩 **Widget Builder** 🆕 | Custom KPI/table/bar/line/pie widgets · advanced filters & aggregates · CSV export & print · VirtualTable with pagination + virtualization · live search with debounce, clear button, F5 shortcut, results count, suggestion list with match highlighting |
+| 🔔 **KPI Alerts** 🆕 | Threshold-based alerts · in-app/email/WhatsApp channels · cooldown · evaluation logs |
+| 👨‍👩‍👦 **Parent/Player Portals** 🆕 | `/parent` & `/player` dedicated portals · strict RLS isolation via `parent_owns_player` / `player_owns_self` · login logs · forced password change on first login |
 | 📱 **WhatsApp** | Business API integration · individual & bulk messaging · dynamic message templates · campaign tracking |
-| 🔐 **Permissions** | 6-action matrix (view/add/edit/delete/print/export) per module · DB-enforced RLS · full audit trail |
+| 🔐 **Permissions** | 6-action matrix (view/add/edit/delete/print/export) per module · DB-enforced RLS · full audit trail · widget audit log |
 | 🏢 **Multi-Branch** | Complete data isolation · per-branch or consolidated reports |
-| 🤖 **AI Assistant** | Marketing chatbot · permission-aware admin analytics chatbot |
-| ⚙️ **Settings** | Academy branding · role management · initial data setup · Danger Zone |
-| 🖨️ **Print & Export** | Printable reports · Excel export on every table · customizable ID card templates |
+| 🤖 **AI Assistant** | Marketing chatbot · permission-aware admin analytics chatbot · saved conversations |
+| ⚙️ **Settings** | Academy branding · role management · initial data setup · encrypted scheduled backups · Danger Zone |
+| 🖨️ **Print & Export** | Printable reports · Excel export on every table · customizable ID card templates · global print settings |
 | 🌐 **i18n** | Arabic RTL / English LTR · instant toggle · English digits always |
 | 🌙 **Theming** | Dark / Light / System · Cairo + Inter fonts · Deep Forest Green + Royal Gold |
 | 📲 **PWA** | Installable on iOS, Android, Desktop · Lighthouse PWA compliant |
@@ -197,7 +232,7 @@
 | Data Fetching | TanStack Query | `^5.83` |
 | Forms | react-hook-form + zod + @hookform/resolvers | `^7.61` / `^3.25` |
 | Charts | Recharts | `^2.15` |
-| Virtual Tables | @tanstack/react-virtual | `^3.13` |
+| Virtual Tables | @tanstack/react-virtual + custom VirtualTable | `^3.13` |
 | Dates | date-fns + react-day-picker | `^3.6` / `^8.10` |
 | Excel | xlsx | `^0.18` |
 | Notifications | sonner + Radix Toast | `^1.7` |
@@ -317,7 +352,19 @@ SELECT has_permission(auth.uid(), 'players', 'export');
 
 The `has_permission(_user_id, _module, _action)` function is called from RLS policies. Frontend permission gating is cosmetic — the database is the source of truth.
 
-### 3. Column-Level PII Encryption
+### 3. Parent/Player Portal Isolation 🆕
+
+Dedicated security-definer helpers strictly scope what portal users can see:
+
+```sql
+-- Parent reads only their linked children's data
+USING (current_portal_type() = 'parent' AND parent_owns_player(player_id));
+
+-- Player reads only their own data
+USING (current_portal_type() = 'player' AND player_owns_self(player_id));
+```
+
+### 4. Column-Level PII Encryption
 
 | Column | Table | Reason |
 |--------|-------|--------|
@@ -328,14 +375,15 @@ The `has_permission(_user_id, _module, _action)` function is called from RLS pol
 
 Encrypted at rest with `pgcrypto`, decrypted only via `SECURITY DEFINER` functions.
 
-### 4. Audit & Compliance
+### 5. Audit & Compliance
 
 - `audit_logs` — Before/After JSONB snapshots for every sensitive change + `actor_id` + IP + timestamp
 - `permission_audit_log` — Dedicated stream for role/permission changes
+- **Widget audit** 🆕 — Every widget create/edit/delete/preview/run logged with user, time, and IP
 - `event_log` — Real-time in-app feed for high-severity events
 - **Retention:** 12 months by default, extensible to 24–36 months
 
-### 5. Storage Buckets
+### 6. Storage Buckets
 
 | Bucket | Public | Access |
 |--------|--------|--------|
@@ -352,22 +400,35 @@ Encrypted at rest with `pgcrypto`, decrypted only via `SECURITY DEFINER` functio
 ```
 src/
 ├── pages/
-│   ├── marketing/          # Public: Home, Features, Solutions, About, Contact
-│   └── admin/              # Authenticated dashboard modules (all lazy-loaded)
-├── components/             # Shared UI (ModuleLayout, DataTable, FormField…)
-├── contexts/               # Language (i18n + RTL), Theme, Auth
-├── hooks/                  # usePrintReport, useShortcuts, usePageTitle…
-├── lib/                    # excel, pdf, validators, message templates, perfMonitor
+│   ├── marketing/                  # Public: Home, Features, Solutions, About, Contact
+│   ├── admin/                      # Authenticated dashboard modules (all lazy-loaded)
+│   │   ├── WidgetBuilderPage.tsx   # 🆕 Custom widget builder
+│   │   └── CustomDashboardPage.tsx # 🆕 Personal dashboards
+│   └── portal/                     # 🆕 Parent & Player portals
+│       ├── ParentDashboardPage.tsx
+│       ├── PlayerDashboardPage.tsx
+│       └── PortalLoginLogsPage.tsx
+├── components/
+│   ├── PlayerProgressChart.tsx     # 🆕 Combined player progress visualization
+│   └── widget-builder/
+│       └── VirtualTable.tsx        # 🆕 Filter + sort + paginate + virtualize
+├── contexts/                       # Language (i18n + RTL), Theme, Auth
+├── hooks/                          # usePrintReport, useShortcuts, usePageTitle…
+├── lib/
+│   ├── widgetAudit.ts              # 🆕 Widget audit logger
+│   ├── widgetExport.ts             # 🆕 CSV export & print helpers
+│   ├── excel, pdf, validators, message templates, perfMonitor
+│   └── …
 └── integrations/
-    └── supabase/           # Auto-generated client & types — DO NOT EDIT
+    └── supabase/                   # Auto-generated client & types — DO NOT EDIT
 supabase/
-├── functions/              # Edge functions: backups, WhatsApp, AI, email
-└── migrations/             # SQL migrations (schema + RLS policies)
+├── functions/                      # Edge functions: backups, WhatsApp, AI, email
+└── migrations/                     # SQL migrations (schema + RLS policies)
 public/
-├── manifest.webmanifest    # PWA manifest
-├── sitemap.xml             # SEO sitemap
-├── robots.txt              # Crawler rules
-└── *.png                   # PWA icons (192, 512, maskable, Apple touch)
+├── manifest.webmanifest            # PWA manifest
+├── sitemap.xml                     # SEO sitemap
+├── robots.txt                      # Crawler rules
+└── *.png                           # PWA icons (192, 512, maskable, Apple touch)
 ```
 
 ---
@@ -379,7 +440,7 @@ bun run test          # one-off run
 bun run test:watch    # interactive watch mode
 ```
 
-Stack: **Vitest + @testing-library/react + @testing-library/jest-dom**.  
+Stack: **Vitest + @testing-library/react + @testing-library/jest-dom**.
 Tests live next to their components in `__tests__/` folders.
 
 ---
@@ -393,12 +454,10 @@ Tests live next to their components in `__tests__/` folders.
 
 ## 👨‍💻 Developer & Company
 
-<div>
-
-**Ahmed — Sooft IT Solutions**  
+**Ahmed — Sooft IT Solutions**
 مطور متخصص في بناء حلول برمجية متكاملة وعملية لأصحاب الأعمال والمؤسسات في المنطقة العربية.
 
-> كل مشروع ناجح يبدأ بفكرة… لكن الفكرة تحتاج نظامًا يحوّلها إلى واقع.  
+> كل مشروع ناجح يبدأ بفكرة… لكن الفكرة تحتاج نظامًا يحوّلها إلى واقع.
 > في **Sooft IT Solutions** نساعدك على تحويل أفكارك وعملياتك اليومية إلى حلول برمجية وتقنية عملية، سهلة الاستخدام، وقابلة للتطوير حسب طبيعة عملك.
 
 ### خدماتنا
@@ -426,23 +485,17 @@ Tests live next to their components in `__tests__/` folders.
 | 📧 Email | [sales@sooftit.com](mailto:sales@sooftit.com) |
 | 💬 WhatsApp | [+201015881992](http://wa.me/+201015881992) |
 
-</div>
-
 ---
 
 ## 📄 License
 
-Proprietary — © سوفت للبرمجيات وحلول التقنية / SoofT Software Solutions. All rights reserved.  
-Unauthorized copying, distribution, or modification is strictly prohibited.  
+Proprietary — © سوفت للبرمجيات وحلول التقنية / SoofT Software Solutions. All rights reserved.
+Unauthorized copying, distribution, or modification is strictly prohibited.
 Contact [sales@sooftit.com](mailto:sales@sooftit.com) for commercial licensing inquiries.
 
 ---
 
-<div align="center">
-
-**Made with 💚 for the sports academies community**  
+**Made with 💚 for the sports academies community**
 **صُنع بـ 💚 لمجتمع الأكاديميات الرياضية**
 
 [academy.sooftit.com](https://academy.sooftit.com) · [sooftit.com](https://sooftit.com) · [sales@sooftit.com](mailto:sales@sooftit.com)
-
-</div>
